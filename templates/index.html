@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API German_Bank</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<script >
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	    document.getElementById("navbar").style.top = "0";
+	  } else {
+	    document.getElementById("navbar").style.top = "-50px";
+	  }
+	} 
+</script>
+  
+</head>
+
+<body>
+ <div class="login" >
+	<h1>Predict Classe BonusMalus</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<div >
+    		<input type="text" name="coef" placeholder="coef" required="required" />
+	    	<input type="text" name="DATE_AFFECTATION" placeholder="DATE_AFFECTATION" required="required" />
+	    	<input type="text" name="bonus" placeholder="bonus" required="required" />
+	    	<input type="text" name="date_Calcule" placeholder="date_Calcule" required="required" />
+	    	<input type="text" name="numChassis" placeholder="numChassis" required="required" />
+	    	
+		<input type="text" name="puissanceFiscal" placeholder="puissanceFiscal" required="required" />
+	    	<input type="text" name="people_maintenance" placeholder="people_maintenance" required="required" />
+	        <input type="text" name="numImmatriculation" placeholder="numImmatriculation" required="required" />
+	        <input type="text" name="typeImmatriculation" placeholder="typeImmatriculation" required="required" />
+	        <input type="text" name="energie" placeholder="energie" required="required" />
+	        
+		<input type="text" name="dateInsertion" placeholder="dateInsertion" required="required" />
+	        <input type="text" name="dateAjout" placeholder="dateAjout" required="required" />
+	        <input type="text" name="Usage" placeholder="Usage" required="required" />
+	        <input type="text" name="codeCompagnie" placeholder="codeCompagnie" required="required" />
+	        <input type="text" name="codeAgence" placeholder="codeAgence" required="required" />
+	        
+		<input type="text" name="typeIntermediaire" placeholder="typeIntermediaire" required="required" />
+	        <input type="text" name="numPolice" placeholder="numPolice" required="required" />
+	        <input type="text" name="naturePolice" placeholder="naturePolice" required="required" />
+	        <input type="text" name="typePolice" placeholder="typePolice" required="required" />
+	        <input type="text" name="dateEffetPolice" placeholder="dateEffetPolice" required="required" />
+	        
+		<input type="text" name="Nombre_Sinistre" placeholder="Nombre_Sinistre" required="required" />
+	        
+
+
+	        
+		
+
+    	</div>
+    	
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+
+
+</body>
+</html>
